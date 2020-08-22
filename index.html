@@ -5,20 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SugarType</title>
     <link rel="stylesheet" href="./CSS/style.css">
+    
 </head>
 <body class ="bodyLogIn">
     <main class="contenedorLogin">
         <section class="logoLogin">
           <img class="imagenLogin" src="./imagenes/Logo.png">
         </section>
-            <form class="gridLogin" id= "formulario">
-                <label><input type="email" id="correo" class="filded" placeholder="Correo"></label>
-                <label><input type="password" id="contrasena" class="filded" placeholder="Contraseña"> </label>
+        <div id= "containerLogIn">
+            <form class="gridLogin" id= "formLogin">
+                <label><input type="text" id="correoInicio" class="filded" placeholder="Correo" required></label>
+                <label><input type="password" id="contrasenaInicio" class="filded" placeholder="Contraseña" minlength="6" required> </label>
                 <label> <button type= "submit" class= "sendButton" id = "enviarLogin" >Iniciar sesión</button>
+                <p id="mensajeInicio"></p>
             </form>
-        <p id="signIn">¿Deseas crear una cuenta? <a href="">Regístrate</a> </p> 
+            <p id="signIn">¿Deseas crear una cuenta? <a href=""  id= "linkRegistar">Regístrate</a></p>
+        </div>
+        <div id= "containerRegistry">
+        <form class="gridLogin" id= "formRegistry">
+            <label><input type="text" id="correoRegistro" class="filded" placeholder="Correo" required></label>
+            <label><input type="password" id="contrasenaRegistro" class="filded" placeholder="Contraseña" minlength="6" required> </label>
+            <label> <button type= "submit" class= "sendButton" id = "enviarRegistry" >Registrarse</button>
+            <p id="mensajeRegistro"></p>
+            <p id="signIn"><a href=""id= "linkInicio">Iniciar sesión</a></p>
+            </form>
+        </div>
     </main>
 
+
+    <!-- FIREBASE SCRIPTS-->
+
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-firestore.js"></script>
+   
+
+    <script>
+
+        
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAmGEQQKWh0Of2pT-yMp3fGWmyoPgaSwes",
+        authDomain: "sugartype-d4f16.firebaseapp.com",
+        databaseURL: "https://sugartype-d4f16.firebaseio.com",
+        projectId: "sugartype-d4f16",
+        storageBucket: "sugartype-d4f16.appspot.com",
+        messagingSenderId: "1011385604605",
+        appId: "1:1011385604605:web:5cac92b96c03030b90a194"
+    };
+    // Initialize Firebase    
+    
+    firebase.initializeApp(firebaseConfig);
+        
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+
+    /*localStorage.setItem("db", db);
+    localStorage.setItem("auth", auth);*/
+
+    
+    </script>
 
     <script type= "module" src="main.js"></script>
 </body>
